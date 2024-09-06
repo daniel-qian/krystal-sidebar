@@ -1,0 +1,382 @@
+/* @font-face {
+    font-family: 'CuteFont';
+    src: url('fonts/HYYongZiXiaoXiongMaoW.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/* Apply the font to the entire sidebar */
+#sidebar {
+    font-family: 'Helvetica', sans-serif;
+}
+
+
+/* General sidebar styling */
+#sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 500px;
+    height: 100%;
+    background-color: #f7f7f7;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    font-family: 'Arial', sans-serif;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Close Button Styling */
+#closeSidebarBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 35px;
+    background-color: rgba(253, 251, 251, 0.5);
+    color: rgb(68, 43, 11); 
+    border: none;
+    /* color: #fff; 使“X”变为白色，与圆形背景更匹配 */
+    border-radius: 50%; /* 圆形按钮 */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 阴影效果，增强立体感 */
+}
+
+#closeSidebarBtn:hover {
+    background-color: rgba(0, 0, 0, 0.3); /* 悬停时，背景色稍微变暗 */
+}
+
+/* Section 1: User Info and Quota */
+#section1 {
+    display: flex;
+    justify-content: start; /* 从左开始排列内容 */
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f7f7f7;
+    margin-top: 0;
+    gap: 40px; /* 添加间距控制 */
+}
+
+#userInfo {
+    width: 130px; /* 固定宽度 */
+    height: 50px; /* 固定高度 */
+    display: flex;
+    align-items: center;
+    background-color: #fff4e8;
+    padding: 2px 20px; /* 减小内边距以减少宽度 */
+    border-radius: 10px;
+}
+
+#userIcon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#userName {
+    font-size: 18px;
+    color: #615252;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    max-width: 130px; /* 限制最大宽度 */
+    white-space: normal; /* 允许换行 */
+    line-height: 1.2; /* 行高 */
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; /* 最多两行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden; /* 溢出隐藏 */
+}
+
+
+.quotaBox {
+    width: 130px; /* 固定宽度 */
+    height: 45px; /* 固定高度 */
+    display: flex;
+    align-items: center;
+    background-color: #fff4e8;
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: #615252;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: -10px; /* 左移 quotaBox */
+}
+
+
+.tooltip {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 200px;
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+#languageToggleBtn {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 50%; /* 圆形按钮 */
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 10px;
+    right: 60px; /* 放在关闭按钮左侧 */
+    z-index: 2000;
+}
+
+#languageToggleBtn:hover {
+    background-color: #e0e0e0;
+}
+
+/* 移除 hover 伪类以防止显示问题 */
+.quotaBox.show-tooltip .tooltip {
+    display: block;
+}
+
+.tooltip p {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.tooltip button {
+    width: 100%;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tooltip button:hover {
+    background-color: #0056b3;
+}
+
+/* Section 2: Image Area */
+#section2 {
+    flex-grow: 0;
+    margin: 20px; 
+    padding: 10px;
+    text-align: center;
+    width: calc(100% - 60px);
+    aspect-ratio: 3 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+    position: relative;
+    border: none;
+}
+
+/* Existing image styling */
+#section2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Adjust the arrow position */
+#nextArrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(253, 251, 251, 0.5);
+    color: rgb(44, 44, 44);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#nextArrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 调整 imageButtons 中的按钮样式 */
+#imageButtons {
+    position: absolute;
+    bottom: 20px; /* 将按钮放置在图片底部 */
+    right: 15px;  /* 调整按钮与右侧的距离 */
+    display: flex;
+    gap: 15px; /* 增加按钮之间的间距，防止重叠 */
+    z-index: 1000;
+}
+
+/* 修改各个按钮的样式，确保图片大小合适 */
+#imageButtons button {
+    background-color: rgba(253, 251, 251, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#imageButtons button img {
+    width: 80%; /* 确保图标显示完全 */
+    height: 80%; /* 调整大小 */
+    object-fit: contain; /* 保证图标不会变形 */
+}
+
+/* 悬停时按钮背景颜色变化 */
+#imageButtons button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Section 3: Input Area */
+#section3 {
+    position: relative;
+    padding: 10px 10px 10px 10px; /* 为 label 留出空间 */
+    border-top: 1px solid #ddd;
+    width: 100%; /* 修正宽度 */
+    box-sizing: border-box; /* 包括内边距在宽度内 */
+    margin-top: -15px;
+}
+
+#section3 .input-label {
+    position: absolute;
+    top: 10px; /* 调整 label 到输入框上方 */
+    left: 20px; /* 调整 label 到输入框的左侧 */
+    padding: 2px 10px; /* 控制 label 的内边距 */
+    background-color: #fff4e8; /* 与 sidebar 背景色一致 */
+    border: 1px solid #fff4e8;
+    border-radius: 25px; /* 圆角效果 */
+    font-size: 17px;
+    font-weight: bold;
+    color: #615252;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
+
+#section3 input {
+    width: 96%; /* 确保输入框宽度为100%并留出边距 */
+    height: 150px; /* 固定输入框高度 */
+    padding: 10px;
+    margin-top: 20px; /* 给 label 留出空间 */
+    border: 1px solid #ddd;
+    border-radius: 25px; /* 圆角效果 */
+    background-color: #ffffff; /* 设置背景颜色为白色 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    font-size: 14px;
+    color: #333;
+    outline: none; /* 移除默认的点击时的外框 */
+}
+
+#section3 input:focus {
+    border-color: #615252; /* 聚焦时的边框颜色 */
+}
+
+/* Send Button Styling */
+#sendButton {
+    position: absolute;
+    bottom: 20px; /* 调整到输入框右下角 */
+    right: 20px;
+    background-color: #f0f0f0;
+    padding: 5px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #615252;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+}
+
+#sendButton:hover {
+    background-color: #e0e0e0;
+}
+
+/* Section 4: Buttons */
+#section4 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom:100px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: flex-start; /* 使按钮从左至右排列 */
+    gap: 3px; /* 调整按钮之间的间距 */
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#section4 button {
+    width: 100px; /* 固定宽度 */
+    height: 50px; /* 固定高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #ffffff; /* 设置背景为白色 */
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 25px; /* 圆角效果 */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* 确保文字不换行 */
+    text-align: center; /* 确保文字在按钮内居中 */
+    overflow: visible;
+    margin-right: 1px;
+}
+
+#section4 button img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#section4 button .label-text {
+    flex-grow: 1;
+    font-family: 'Arial', sans-serif;
+    color: #615252;
+    text-align: left; /* 确保文本在图标右侧左对齐 */
+}
+
+#section4 button:hover {
+    background-color: #f0f0f0; /* 设置悬停时的背景颜色 */
+}
+
+#section4 button.active {
+    background-color: #fff4e8; /* 设置激活时的背景颜色 */
+    color: #615252; /* 设置激活时的文本颜色 */
+    border: 2px solid #fff4e8; /* 设置激活时的边框颜色 */
+}
+
+
+

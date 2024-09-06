@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "ImaRead",
+  "version": "1.0",
+  "description": "Select text on specific websites and send it to QianFan.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "storage",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "http://8.134.153.219/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+  {
+    "matches": ["<all_urls>"],  // 修改为匹配所有URL
+    "js": ["content.js"]
+  }
+],
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "https://lexica.art/aperture*",
+    "https://qianfan.baidubce.com/v2/app/conversation"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/logo.png",
+      "48": "icons/logo.png",
+      "128": "icons/1.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/close.png",
+        "icons/download.png",
+        "icons/like.png",
+        "icons/dislike.png",
+        "icons/logo.png"
+      ],
+      "resources": ["sidebar.html", "icons/logo.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

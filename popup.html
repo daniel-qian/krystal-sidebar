@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ImaRead</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 350px; /* 整体宽度 */
+      padding: 10px;
+      text-align: center;
+    }
+
+    #header {
+      display: flex;
+      align-items: center; /* 中心对齐 */
+      margin-bottom: 20px; /* 为与内容的分隔线保留空间 */
+    }
+
+    .logo-container {
+      width: 120px; /* 调整Logo容器宽度 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #logo {
+      width: 180px; /* 你想要的宽度 */
+      height: 120px; /* 你想要的高度 */
+      border-radius: 50%; /* 将元素的圆角半径设为50%来使其变成圆形 */
+      overflow: hidden; /* 确保内容不会溢出圆形边界 */
+    }
+
+    .divider {
+      width: 1px;
+      height: 120px; /* 分隔线高度与Logo相同 */
+      background-color: #dcdcdc; /* 浅色竖线 */
+      margin: 0 20px; /* 分隔线两侧的间距 */
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1; /* 让选项区域填满剩余空间 */
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      cursor: pointer;
+      font-family: 'Yuanti SC', sans-serif;
+      color: rgb(94, 94, 94);
+      font-size: 10px; /* 调整字体大小 */
+    }
+
+    .option img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .option-text {
+      font-size: 15px;
+      color: rgb(94, 94, 94);
+      text-decoration: none; /* 移除默认链接下划线 */
+      display: flex;
+      flex-direction: column; /* 垂直排列中文和英文 */
+    }
+
+    .option-text-english {
+      font-size: 14px; /* 英文的字体大小 */
+      color: rgb(150, 150, 150); /* 英文的颜色 */
+      font-family: 'Arial', sans-serif; /* 英文的字体 */
+      font-weight: bold;
+      margin-top: 3px; /* 增加中文和英文之间的间距 */
+    }
+
+    .联系我们 {
+      margin-top: 20px;
+      font-size: 12px;
+      color: rgb(65, 65, 65);
+      text-align: left; /* 使Toggle文字靠右对齐 */
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      width: 100%;
+      padding: 10px;
+      background-color: #fceabb;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #f8e1a1;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #content {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header: 包含Logo和Title -->
+  <div id="header">
+    <!-- 左侧Logo部分 -->
+    <div class="logo-container">
+      <img id="logo" src="icons/logo.png" alt="Logo">
+    </div>
+    
+    <!-- 分隔线 -->
+    <div class="divider"></div>
+    
+    <!-- 右侧选项部分 -->
+    <div class="options">
+      <div class="option">
+        <img src="icons/down.png" alt="无限生图">
+        <a href="http://8.138.13.194/?products/" target="_blank" class="option-text">无限生图
+          <span class="option-text-english">UNLIMITED GENERATION</span>
+        </a>
+      </div>
+      <div class="option">
+        <img src="icons/down.png" alt="关于我们">
+        <a href="http://8.138.13.194/?about/" target="_blank" class="option-text">关于我们
+          <span class="option-text-english">ABOUT US</span>
+        </a>
+      </div>
+      <div class="option">
+        <img src="icons/down.png" alt="插件教程">
+        <a href="http://8.138.13.194/?about/" target="_blank" class="option-text">插件教程
+          <span class="option-text-english">TUTORIAL</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 登录界面 -->
+  <div id="loginView" class="hidden">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Password" required>
+    <button id="loginButton">Login</button>
+    <p><a href="#" id="registerLink">New user? Register</a></p>
+  </div>
+
+  <!-- 注册界面 -->
+  <div id="registerView" class="hidden">
+    <h2>Register</h2>
+    <input type="email" id="registerEmail" placeholder="Email" required>
+    <input type="password" id="registerPassword" placeholder="Password" required>
+    <button id="completeRegistrationButton">Complete Registration</button>
+    <p><a href="#" id="backToLoginLink">Back to Login</a></p>
+  </div>
+
+  <!-- 用户信息界面 -->
+  <div id="userInfoView">
+    <div id="userInfo">
+      <p><strong>Username:</strong> <span id="username">Loading...</span></p>
+      <p><strong>Available Quota:</strong> <span id="quota">Loading...</span></p>
+    </div>
+    <button id="sendButton">Generate Image</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

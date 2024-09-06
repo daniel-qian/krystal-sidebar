@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="sidebar.css"> <!-- 引入外部 CSS 文件 -->
+</head>
+<body>
+    
+    <div id="sidebar">
+        <!-- Close Button -->
+        <button id="closeSidebarBtn">×</button>
+
+
+<!-- Language Toggle Button -->
+<button id="languageToggleBtn" style="margin-left: 10px; margin-right: 10px; cursor: pointer;">EN/中文</button>
+
+
+       <!-- Section 1: User Info and Quota -->
+<div id="section1">
+    <div id="userInfo">
+        <div id="userIcon">
+            <img src="icons/logo.png" alt="Logo"> <!-- 替换为你的 logo 图片路径 -->
+        </div>
+        <span id="userName">安德森科技大厦附近绿卡</span> <!-- 替换为实际的用户名 -->
+    </div>
+    <div id="userQuota" class="quotaBox">
+        额度：1992/2000
+        <div id="quotaDetails" class="tooltip">
+            <p>每日免费额度：1000/1000</p>
+            <p>账户余额：1992/2000</p>
+            <button>立即充值</button>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Section 2: Image Area -->
+        <div id="section2">
+            <div class="img-container">
+                <img src="icons/dog1.png" alt="Img Area" id="sidebarImage"> <!-- Replace with your first image source -->
+                <!-- Arrow Icon for next image -->
+                <div id="imageButtons">
+                    <button id="downloadButton"><img src="icons/downloads.png" alt="Download" /></button>
+                    <button id="likeButton"><img src="icons/heart.png" alt="Like" /></button>
+                    <button id="dislikeButton"><img src="icons/broken heart.png" alt="Dislike" /></button>
+                </div>
+                <div id="nextArrow" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 30px; color: #333;">
+                    ➔
+                </div>
+            </div>
+        </div>
+
+<div id="section3">
+    <label class="input-label">输入文本:</label>
+    <input type="text" id="textInput">
+    <button id="sendButton">发送</button>
+</div>
+
+
+
+
+        <!-- Section 4: Buttons Area -->
+<div id="section4">
+    <!-- 第一行标签 -->
+    <div class="button-row">
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">古代</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">近代</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">未来</span>
+        </button>
+    </div>
+    
+    <!-- 第二行标签 -->
+    <div class="button-row">
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">亚洲</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">北美洲</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">南美洲</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">中东</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">非洲</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">欧洲</span>
+        </button>
+    </div>
+    
+    <!-- 第三行标签 -->
+    <div class="button-row">
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">黄色人种</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">白色人种</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">黑色人种</span>
+        </button>
+        <button>
+            <img src="icons/logo.png" alt="Logo">
+            <span class="label-text">棕色人种</span>
+        </button>
+    </div>
+</div>
+
+        
+    <script src="sidebar.js"></script>
+</body>
+</html>
